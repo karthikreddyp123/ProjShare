@@ -1,0 +1,40 @@
+﻿body {
+}
+li:hover {
+    COLOR: blue;
+    TEXT-DECORATION: none;
+}
+
+navbar {
+    flex-direction: column;
+}
+
+.Header {
+    height: 30px;
+    border-color: black;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    background-color: #222222;
+    /*color: white;*/
+    font-size: 30px;
+}
+
+.footer {
+    height: 3%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #222222;
+    color: white;
+    text-align: left;
+    padding: 2px;
+}
+
+.Title {
+    margin-top: -10px;
+    font-size: 44px;
+    color: white;
+    margin-left: 600px;
+}

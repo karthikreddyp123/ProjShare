@@ -1,0 +1,50 @@
+﻿.Header {
+    height: 30px;
+    border-color: black;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    background-color: #222222;
+    /*color: white;*/
+    font-size: 30px;
+}
+
+.footer {
+    height: 5%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #222222;
+    color: white;
+    text-align: left;
+}
+
+.Logout {
+    margin-left: 900px;
+    color: white;
+}
+
+.Title {
+    margin-top: -10px;
+    font-size: 44px;
+    color: white;
+    margin-left: 600px;
+}
+
+.dropdown {
+    margin-left: 1000px;
+}
+
+.topnav-right {
+    float: right;
+}
+
+.white {
+    color: white;
+}
+
+.dropdown .dropdown-menu {
+    width: auto;
+}

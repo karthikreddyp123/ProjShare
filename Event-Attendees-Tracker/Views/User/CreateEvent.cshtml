@@ -1,0 +1,213 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E@T</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="~/Content/css/CreateCustom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css" />
+    @*<link rel="stylesheet" href="token-input.css">*@
+
+</head>
+
+<body style="background-color:#dadada">
+    <div class="navbar navbar-expand-sm navbar-inverse" style="background-color:white;position:relative;top:7%">
+
+        <div class="container">
+
+            <div class="navbar-header" style="color:white;height:10%">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+                    <span class="icon-bar"></span>
+
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse" style="color:white;bottom:0px;position:absolute">
+
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+
+                        @Html.ActionLink("HOME", "Organizer", "User", new { @class = "loginLink_home", @id = "addEvent_User" })
+                    </li>
+                    <li style="color:black;" class="nav-item">
+
+                        @Html.ActionLink("ADDEVENT", "CreateEvent", "User", new { @class = "loginLink_home", @id = "addEvent_User" })
+
+                    </li>
+                    <li style="color:black;" class="nav-item">
+                        @Html.ActionLink("REPORTS", "Organizer", "User", new { @class = "loginLink_home", @id = "addEvent_User" })
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="w3-container">
+
+        <header class="w3-container blue">
+            <h1>Create Event</h1>
+        </header>
+
+        <div class="w3-panel w3-card" style="background-color:white">
+
+            <form method="post" enctype="multipart/form-data">
+                @{
+
+                    if ((bool)ViewBag.Readonly)
+                    {
+
+                        @:<div class="w3-row">
+                            @:<div class="form-group col-md-6 nopadding">
+                                @:<div class="form-group">
+                                    @:<label for="EventName">Event Name:</label>
+                                    @:<input type="text" class="form-control" name="eventName" id="name" placeholder="Event Name" required>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<label for="EventVenue">Event Venue:</label>
+                                    @:<input type="text" class="form-control" id="venue" name="venueName" placeholder="Event Venue" required readonly>
+                                @:</div>
+
+                                @:<div class="form-group">
+                                    @:<label for="EventDate">Event Date:</label>
+                                    @:<input type="date" class="form-control" name="date" id="date" required readonly>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<div class="col-sm-4 time">
+                                        @:<label for="EventTime">Event Start Time:</label>
+                                        @:<input type="time" class="form-control" id="time"  placeholder="Enter Event Time" name="start_time" required readonly>
+                                    @:</div>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<div class="col-sm-4 time">
+                                        @:<label for="EventTime">Event End Time:</label>
+                                        @:<input type="time" class="form-control" id="time" placeholder="Enter Event Time" name="end_time" required readonly>
+                                    @:</div>
+                                @:</div>
+                            @:</div>
+                            @:<div class="form-group col-md-6 ">
+                                @:<div class="form-group">
+                                    @:<label for="Description">Description:</label>
+                                    @:<textarea class="form-control" id="description" name="description" placeholder="Enter event description" rows="7" draggable="false" required></textarea>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<label for="VolunteerMail">Volunteer Mail ID:</label>
+                                    @:<input type="email" class="form-control" id="VolunteerMail" name="volunteerEmail" placeholder="Volunteer Mail ID" required>
+
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<div class="custom-file">
+                                        @:<label for="poster-upload" class="custom-file-upload">
+                                            @:<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                            @:Upload Poster
+                                        @:</label>
+                                        @:<input id="poster-upload" type="file" name="posterFile" accept="image/*" />
+                                        @:<span id="file-name"></span>
+                                    @:</div>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<div class="custom-file">
+                                        @:<label for="file-upload" class="custom-file-upload">
+                                            @:<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                            @: Upload File
+                                        @:</label>
+                                        @:<input id="file-upload" type="file" name="excelFile" accept=".csv, .xlsx, .xls, .csv" onchange="checkfile(this);" />
+                                        @:<span id="file-name1"></span>
+                                    @:</div>
+                                @:</div>
+                              @:<div class="form-group">
+                                    @:<button type="submit" class="btn btn-primary">Create</button>
+                                @:</div>
+                            @:</div>
+                        @:</div>
+                    }
+                    else
+                    {
+                        @:<div class="w3-row">
+                            @:<div class="form-group col-md-6 nopadding">
+                                @:<div class="form-group">
+                                    @:<label for="EventName">Event Name:</label>
+                                    @:<input type="text" class="form-control" id="name" name="name" placeholder="Event Name" required>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<label for="EventVenue">Event Venue:</label>
+                                    @:<input type="text" class="form-control" id="venue" name="venue" placeholder="Event Venue" required>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<label for="EventDate">Event Date:</label>
+                                    @:<input type="date" class="form-control" id="date" name="eventDate" required>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<div class="col-sm-4 time">
+                                        @:<label for="EventTime">Event Start Time:</label>
+                                        @:<input type="time" class="form-control" id="time" placeholder="Enter Event Time" name="startTime" required>
+                                    @:</div>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<div class="col-sm-4 time">
+                                        @:<label for="EventTime">Event End Time:</label>
+                                        @:<input type="time" class="form-control" id="time" placeholder="Enter Event Time" name="endTime" required>
+                                    @:</div>
+                                @:</div>
+                            @:</div>
+                            @:<div class="form-group col-md-6 ">
+                                @:<div class="form-group">
+                                    @:<label for="Description">Description:</label>
+                                    @:<textarea class="form-control" id="description" placeholder="Enter event description" rows="7" name="description" draggable="false" required></textarea>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<label for="VolunteerMail">Volunteer Mail ID:</label>
+                                    @:<input type="email" class="form-control" id="VolunteerMail" name="volunteerEmail" placeholder="Volunteer Mail ID" required>
+
+
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<div class="custom-file">
+                                        @:<label for="poster-upload" class="custom-file-upload">
+                                            @:<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                            @:Upload Poster
+                                        @:</label>
+                                        @:<input id="poster-upload" type="file" name="posterImage" accept="image/*" />
+                                        @:<span id="file-name"></span>
+                                    @:</div>
+                                @:</div>
+                                @:<div class="form-group">
+                                    @:<div class="custom-file">
+                                        @:<label for="file-upload" class="custom-file-upload">
+                                            @:<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                            @: Upload File
+                                        @:</label>
+                                        @:<input id="file-upload" type="file" name="excelFile" accept=".csv, .xlsx, .xls, .csv" onchange="checkfile(this);" />
+                                        @:<span id="file-name1"></span>
+                                    @:</div>
+                                @:</div>
+
+
+                                @:<div class="form-group">
+                                    @:<button type="submit" class="btn btn-primary">Create</button>
+                                @:</div>
+                            @:</div>
+                        @:</div>
+
+                    }
+                }
+            </form>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="~/Content/Js/CreateCustom.js"></script>
+    @*<script src="jquery.tokeninput.js"></script>*@
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.min.js"></script>
+</body>
+</html>
+

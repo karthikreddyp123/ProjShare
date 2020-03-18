@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Organizer";
+    Layout = "~/Views/Organizer/_OrganizerNav.cshtml";
+}
+<html lang="en">
+<head>
+    <title>E@T</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="~/Content/css/Custom.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+</head>
+<body style="background-color:#f2f3f7">  
+
+
+    @*Active Events*@
+
+    <div class=" col-sm-6 w3-panel w3-card" data-spy="scroll" data-offset="15" data-target="#myScrollspy">
+        <div class="left-partition ">
+            <h2 class="sub-header" style="color:#76CDD8">&nbsp; Active Events</h2>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar table-responsive" id="myScrollspy">
+
+
+                @{
+
+                    for (int i = 1; i < 6; i++)
+                    {
+
+                        @: <div>
+                            @: <div class="col-lg-12 col-sm-12">
+                                @: <div class="card hovercard">
+                                    @:   <div class="cardheader">
+                                    @:</div>
+                                    @: <div class="avatar">
+                                        <img alt="" src="~/Content/Images/Organizer_Dashboard/avatar.png">
+                                    @:</div>
+                                    @:<div class="info">
+                                        @: <div class="title">
+                                            @:  <a target="_blank" href="#">Event Name @i</a>
+                                        @:</div>
+                                        @:  <div class="desc"><p>Join artist Lindsay Seers and Professor Anil Seth as they discuss the science behind current John Hansard Gallery exhibition, Every Thought There Ever Was. Seth is Professor of Cognitive and Computational Neuroscience and co-director of the Sackler Centre for Consciousness Science at the University of Sussex.Join artist Lindsay Seers and Professor Anil Seth as they discuss the science behind current John Hansard Gallery exhibition, Every Thought There Ever Was. Seth is Professor of Cognitive and Computational Neuroscience and co-director of the Sackler Centre for Consciousness Science at the University of Sussex.</p> </div>
+                                    @:</div>
+                                @:</div>
+                            @:</div>
+                        @:</div>
+
+
+
+
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+
+    @*Reports*@
+    <div class="w3-container col-sm-6 ">
+        <div class="w3-panel w3-card" style="background-color:white">
+            <div class="row" style="background-color:white;">
+                <div style="background-color:white;" class="col-md-6 ">
+                    <h2 class="sub-header" style="color:#76CDD8">&nbsp;Reports</h2>
+
+                    <div id="piechart_3d" class="chart "> </div>
+                </div>
+                <div style="background-color:white;" class="col-md-6 ">
+                    <div id="chart_div" class="chart "></div>
+                </div>
+            </div>
+        </div>
+        @*Past Events*@
+        <div class="w3-panel w3-card" style="background-color:white">
+            <div class="row w3-card">
+                <div style="background-color:white;">
+                    <h2 class="sub-header" style="color:#76CDD8">&nbsp; Past Events</h2>
+                    <div class=" dropdown">
+
+                        <div id="accordion">
+                            @{
+
+                                for (int i = 1; i < 6; i++)
+                                {
+                                    @:<h3>Event @i</h3>
+                                    @: <div>
+                                        @: <div class="col-lg-12 col-sm-12">
+                                            @: <div class="card hovercard">
+                                                @:   <div class="cardheader">
+                                                @:</div>
+                                                @: <div class="avatar">
+                                                    <img alt="" src="~/Content/Images/Organizer_Dashboard/avatar.png">
+                                                @:</div>
+                                                @:<div class="info">
+                                                    @: <div class="title">
+                                                        @:  <a target="_blank" href="https://scripteden.com/">Event Name @i</a>
+                                                    @:</div>
+                                                    @:  <div class="desc"><p>Join artist Lindsay Seers and Professor Anil Seth as they discuss the science behind current John Hansard Gallery exhibition, Every Thought There Ever Was. Seth is Professor of Cognitive and Computational Neuroscience and co-director of the Sackler Centre for Consciousness Science at the University of Sussex.Join artist Lindsay Seers and Professor Anil Seth as they discuss the science behind current John Hansard Gallery exhibition, Every Thought There Ever Was. Seth is Professor of Cognitive and Computational Neuroscience and co-director of the Sackler Centre for Consciousness Science at the University of Sussex.</p> </div>
+                                                @:</div>
+                                            @:</div>
+                                        @:</div>
+                                    @:</div>
+                                }
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*Download Float Button*@
+        <a href="#" class="float">
+            <i class="fa fa-download my-float"></i>
+        </a>
+        <div class="label-container">
+            <div class="label-text">Download Student Template</div>
+            <i class="fa fa-play label-arrow"></i>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" id="hs-script-loader" async="" defer="" src="//js.hs-scripts.com/4908995.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <script src="~/Content/Js/Customjs.js"></script>
+</body>
+</html>
+

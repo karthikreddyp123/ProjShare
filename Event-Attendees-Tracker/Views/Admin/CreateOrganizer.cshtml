@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "CreateOrganizer";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E@T</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="~/Content/css/CreateCustom.css" rel="stylesheet" />
+
+</head>
+
+<body style="background-color:#dadada">
+    <div class="navbar navbar-expand-sm navbar-inverse" style="background-color:white;position:relative;top:7%">
+
+        <div class="container">
+
+            <div class="navbar-header" style="color:white;height:10%">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+                    <span class="icon-bar"></span>
+
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse" style="color:white;bottom:0px;position:absolute">
+
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+
+                        @Html.ActionLink("HOME", "Admin", "User", new { @class = "loginLink_home", @id = "addEvent_User" })
+                    </li>
+                    <li style="color:black;" class="nav-item">
+
+                        @Html.ActionLink("ADDORGANIZER", "CreateOrganizer", "User", new { @class = "loginLink_home", @id = "addEvent_User" })
+
+                    </li>
+                    <li style="color:black;" class="nav-item">
+
+                        @Html.ActionLink("MODIFYEVENTS", "ModifyEvent", "User", new { @class = "loginLink_home", @id = "addEvent_User" })
+
+                    </li>
+                    <li style="color:black;" class="nav-item">
+                        @Html.ActionLink("REPORTS", "Organizer", "User", new { @class = "loginLink_home", @id = "addEvent_User" })
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="w3-container">
+
+        <header class="w3-container blue">
+            <h1>Add Organizer</h1>
+        </header>
+
+        <div class="w3-panel w3-card" style="background-color:white">
+
+            <form>
+                <div class="w3-row">
+                    <div class="form-group col-md-4 nopadding">
+                        <div class="form-group">
+                            <label for="EventName">Organizer Name:</label>
+                            <input type="text" class="form-control" id="Organizer_name" placeholder="Organizer Name" required>
+                        </div>
+
+                    </div>
+                    <div class="form-group col-md-4 ">
+
+                        <div class="form-group">
+                            <label for="OrganizerMail">Organizer Mail ID:</label>
+                            <input type="email" class="form-control" id="OrganizerMail" placeholder="Organizer Mail ID" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="~/Content/Js/CreateCustom.js"></script>
+</body>
+</html>
+

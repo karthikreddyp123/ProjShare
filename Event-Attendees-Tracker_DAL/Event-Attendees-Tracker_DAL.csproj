@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35D1B188-AC4C-46C1-A1B2-6045AE62D89F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Event_Attendees_Tracker_DAL</RootNamespace>
+    <AssemblyName>Event-Attendees-Tracker_DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database Context\EAT_DBContext.cs" />
+    <Compile Include="DBOperations\EventRegistrationDAL.cs" />
+    <Compile Include="DBQueries\CheckStudentExists.cs" />
+    <Compile Include="DBQueries\EventQuery.cs" />
+    <Compile Include="DBQueries\FetchEvent.cs" />
+    <Compile Include="DBQueries\UserQuery.cs" />
+    <Compile Include="Instances\DBInstance.cs" />
+    <Compile Include="Migrations\202003050704580_Creating User Details Table.cs" />
+    <Compile Include="Migrations\202003050704580_Creating User Details Table.designer.cs">
+      <DependentUpon>202003050704580_Creating User Details Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003051003230_Creating Master_DBROles Table with mapping dbroles and userdetails.cs" />
+    <Compile Include="Migrations\202003051003230_Creating Master_DBROles Table with mapping dbroles and userdetails.designer.cs">
+      <DependentUpon>202003051003230_Creating Master_DBROles Table with mapping dbroles and userdetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100810413_Adding Master_CollegeDetails Table.cs" />
+    <Compile Include="Migrations\202003100810413_Adding Master_CollegeDetails Table.designer.cs">
+      <DependentUpon>202003100810413_Adding Master_CollegeDetails Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100813577_Adding Point Of Contact Table.cs" />
+    <Compile Include="Migrations\202003100813577_Adding Point Of Contact Table.designer.cs">
+      <DependentUpon>202003100813577_Adding Point Of Contact Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100816125_Adding OneToOne Relation from CollegeDetails Table To PointOfContact Table.cs" />
+    <Compile Include="Migrations\202003100816125_Adding OneToOne Relation from CollegeDetails Table To PointOfContact Table.designer.cs">
+      <DependentUpon>202003100816125_Adding OneToOne Relation from CollegeDetails Table To PointOfContact Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100828046_Adding Registered Student Table.cs" />
+    <Compile Include="Migrations\202003100828046_Adding Registered Student Table.designer.cs">
+      <DependentUpon>202003100828046_Adding Registered Student Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100830256_Change table name UserDetails and Registered Student Table.cs" />
+    <Compile Include="Migrations\202003100830256_Change table name UserDetails and Registered Student Table.designer.cs">
+      <DependentUpon>202003100830256_Change table name UserDetails and Registered Student Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100831551_Change table name DBRoles and College Details Table.cs" />
+    <Compile Include="Migrations\202003100831551_Change table name DBRoles and College Details Table.designer.cs">
+      <DependentUpon>202003100831551_Change table name DBRoles and College Details Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100833542_Mapping OneToOneRealation from RegisteredStudent Table to CollegeDetails Table.cs" />
+    <Compile Include="Migrations\202003100833542_Mapping OneToOneRealation from RegisteredStudent Table to CollegeDetails Table.designer.cs">
+      <DependentUpon>202003100833542_Mapping OneToOneRealation from RegisteredStudent Table to CollegeDetails Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100837143_Adding EventAttendees Table.cs" />
+    <Compile Include="Migrations\202003100837143_Adding EventAttendees Table.designer.cs">
+      <DependentUpon>202003100837143_Adding EventAttendees Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100852576_Adding EventDetails Table.cs" />
+    <Compile Include="Migrations\202003100852576_Adding EventDetails Table.designer.cs">
+      <DependentUpon>202003100852576_Adding EventDetails Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100854580_Mapping EventAttendees Table with RegisteredStudent Table and EventDetails Table.cs" />
+    <Compile Include="Migrations\202003100854580_Mapping EventAttendees Table with RegisteredStudent Table and EventDetails Table.designer.cs">
+      <DependentUpon>202003100854580_Mapping EventAttendees Table with RegisteredStudent Table and EventDetails Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003120703338_Added Event Date and Poster Image in EventDetails Table.cs" />
+    <Compile Include="Migrations\202003120703338_Added Event Date and Poster Image in EventDetails Table.designer.cs">
+      <DependentUpon>202003120703338_Added Event Date and Poster Image in EventDetails Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003130714126_Adding UserRoles Mapping.cs" />
+    <Compile Include="Migrations\202003130714126_Adding UserRoles Mapping.designer.cs">
+      <DependentUpon>202003130714126_Adding UserRoles Mapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\EventAttendees.cs" />
+    <Compile Include="Models\EventDetails.cs" />
+    <Compile Include="Models\Master_CollegeDetails.cs" />
+    <Compile Include="Models\Master_DBRoles.cs" />
+    <Compile Include="Models\PointOfContact.cs" />
+    <Compile Include="Models\RegisteredStudents.cs" />
+    <Compile Include="Models\UserDetails.cs" />
+    <Compile Include="Models\UserMappedRoles.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003050704580_Creating User Details Table.resx">
+      <DependentUpon>202003050704580_Creating User Details Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051003230_Creating Master_DBROles Table with mapping dbroles and userdetails.resx">
+      <DependentUpon>202003051003230_Creating Master_DBROles Table with mapping dbroles and userdetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100810413_Adding Master_CollegeDetails Table.resx">
+      <DependentUpon>202003100810413_Adding Master_CollegeDetails Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100813577_Adding Point Of Contact Table.resx">
+      <DependentUpon>202003100813577_Adding Point Of Contact Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100816125_Adding OneToOne Relation from CollegeDetails Table To PointOfContact Table.resx">
+      <DependentUpon>202003100816125_Adding OneToOne Relation from CollegeDetails Table To PointOfContact Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100828046_Adding Registered Student Table.resx">
+      <DependentUpon>202003100828046_Adding Registered Student Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100830256_Change table name UserDetails and Registered Student Table.resx">
+      <DependentUpon>202003100830256_Change table name UserDetails and Registered Student Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100831551_Change table name DBRoles and College Details Table.resx">
+      <DependentUpon>202003100831551_Change table name DBRoles and College Details Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100833542_Mapping OneToOneRealation from RegisteredStudent Table to CollegeDetails Table.resx">
+      <DependentUpon>202003100833542_Mapping OneToOneRealation from RegisteredStudent Table to CollegeDetails Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100837143_Adding EventAttendees Table.resx">
+      <DependentUpon>202003100837143_Adding EventAttendees Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100852576_Adding EventDetails Table.resx">
+      <DependentUpon>202003100852576_Adding EventDetails Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100854580_Mapping EventAttendees Table with RegisteredStudent Table and EventDetails Table.resx">
+      <DependentUpon>202003100854580_Mapping EventAttendees Table with RegisteredStudent Table and EventDetails Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003120703338_Added Event Date and Poster Image in EventDetails Table.resx">
+      <DependentUpon>202003120703338_Added Event Date and Poster Image in EventDetails Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003130714126_Adding UserRoles Mapping.resx">
+      <DependentUpon>202003130714126_Adding UserRoles Mapping.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>
